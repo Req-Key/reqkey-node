@@ -254,7 +254,6 @@ export class ReqKey {
   ): Promise<Response> {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), this.#config.timeoutMs);
-    timer.unref?.();
 
     try {
       return await this.#config.fetch(`${this.#config.baseUrl}${path}`, {

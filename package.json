@@ -82,7 +82,7 @@
     "build": "node scripts/build.mjs",
     "clean": "rm -rf dist .test-dist coverage",
     "test:compile": "rm -rf .test-dist && tsc -p tsconfig.test.json",
-    "test": "npm run test:compile && node --test .test-dist/tests/**/*.test.js",
+    "test": "npm run test:compile && node --test .test-dist/tests/*.test.js",
     "test:coverage": "npm run test:compile && node --test --experimental-test-coverage .test-dist/tests/**/*.test.js",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm test && npm run build && npm pack --dry-run",
