@@ -1,0 +1,128 @@
+{
+  "name": "reqkey",
+  "version": "0.1.0",
+  "description": "The official Node.js and TypeScript SDK for ReqKey API key validation and usage analytics",
+  "keywords": [
+    "api-keys",
+    "authentication",
+    "express",
+    "fastify",
+    "koa",
+    "nestjs",
+    "nextjs",
+    "rate-limiting",
+    "usage-based-billing"
+  ],
+  "homepage": "https://reqkey.com",
+  "bugs": {
+    "url": "https://github.com/Req-Key/reqkey-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Req-Key/reqkey-node.git"
+  },
+  "license": "MIT",
+  "author": "ReqKey <support@reqkey.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./node": {
+      "types": "./dist/esm/node.d.ts",
+      "import": "./dist/esm/node.js",
+      "require": "./dist/cjs/node.js"
+    },
+    "./express": {
+      "types": "./dist/esm/express.d.ts",
+      "import": "./dist/esm/express.js",
+      "require": "./dist/cjs/express.js"
+    },
+    "./fastify": {
+      "types": "./dist/esm/fastify.d.ts",
+      "import": "./dist/esm/fastify.js",
+      "require": "./dist/cjs/fastify.js"
+    },
+    "./koa": {
+      "types": "./dist/esm/koa.d.ts",
+      "import": "./dist/esm/koa.js",
+      "require": "./dist/cjs/koa.js"
+    },
+    "./nestjs": {
+      "types": "./dist/esm/nestjs.d.ts",
+      "import": "./dist/esm/nestjs.js",
+      "require": "./dist/cjs/nestjs.js"
+    },
+    "./next": {
+      "types": "./dist/esm/next.d.ts",
+      "import": "./dist/esm/next.js",
+      "require": "./dist/cjs/next.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "clean": "rm -rf dist .test-dist coverage",
+    "test:compile": "rm -rf .test-dist && tsc -p tsconfig.test.json",
+    "test": "npm run test:compile && node --test .test-dist/tests/**/*.test.js",
+    "test:coverage": "npm run test:compile && node --test --experimental-test-coverage .test-dist/tests/**/*.test.js",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test && npm run build && npm pack --dry-run",
+    "prepublishOnly": "npm run check"
+  },
+  "peerDependencies": {
+    "@nestjs/common": ">=11 <12",
+    "@nestjs/core": ">=11 <12",
+    "fastify": ">=5 <6",
+    "koa": ">=2 <4"
+  },
+  "peerDependenciesMeta": {
+    "@nestjs/common": {
+      "optional": true
+    },
+    "@nestjs/core": {
+      "optional": true
+    },
+    "fastify": {
+      "optional": true
+    },
+    "koa": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@nestjs/common": "^11.1.28",
+    "@nestjs/core": "^11.1.28",
+    "@nestjs/platform-express": "^11.1.28",
+    "@nestjs/platform-fastify": "^11.1.28",
+    "@types/express": "^5.0.6",
+    "@types/koa": "^3.0.3",
+    "@types/node": "^24.0.0",
+    "@types/supertest": "^6.0.3",
+    "express": "^5.2.1",
+    "fastify": "^5.10.0",
+    "koa": "^3.2.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "supertest": "^7.2.2",
+    "typescript": "^5.9.3"
+  }
+}
